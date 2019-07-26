@@ -22,3 +22,9 @@ jobs:
       - run:
           name: Gatsby Build
           command: npm run build
+      - deploy:
+          name: Deploy to S3.
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              aws s3 sync ~/gatsby-site/public s3://theechelonscene/ --delete
+            fi
