@@ -22,6 +22,9 @@ jobs:
       - run:
           name: Gatsby Build
           command: npm run build
+      - run:
+          name: Installing dependencies.
+          command: apt-get install awscli
       - deploy:
           name: Deploy to S3.
           command: |
