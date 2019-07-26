@@ -29,5 +29,5 @@ jobs:
           name: Deploy to S3.
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              aws s3 sync ~/gatsby-site/public s3://theechelonscene.com/ --delete
+              aws s3 sync ~/gatsby-site/public s3://theechelonscene.com/ --delete --region eu-west-2
             fi
